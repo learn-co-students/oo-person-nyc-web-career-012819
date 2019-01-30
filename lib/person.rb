@@ -1,8 +1,8 @@
 require 'pry'# your code goes here
 class Person
 
-  attr_reader :name, :happiness, :hygiene
-  attr_accessor :bank_account, :topic
+  attr_reader :name, :hygiene
+  attr_accessor :bank_account, :happiness
 
   def initialize(name, bank_account=25, happiness=8, hygiene=8)
     @name = name
@@ -70,10 +70,16 @@ class Person
   end
 
   def start_conversation(person, topic)
-    if @topic == "politics"
-      return 'blah blah partisan blah lobbyist'
+    if topic == "politics"
       self.happiness -= 2
       person.happiness -= 2
+      "blah blah partisan blah lobbyist"
+    elsif topic == "weather"
+      self.happiness += 1
+      person.happiness += 1
+      "blah blah sun blah rain"
+    else
+      "blah blah blah blah blah"
     end
   end
 
